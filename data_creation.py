@@ -43,22 +43,26 @@ def generate_restaurant_orders_data(n_points=24, noise_level=3.0, add_anomalies=
 
     return df
 
-create_directories()
+def main():
+    create_directories()
 
-for i in range(1, 4):
-    df_train = generate_restaurant_orders_data(
-        n_points=DEFAULT_POINTS,
-        noise_level=2.0,
-        add_anomalies=False
-    )
-    df_train.to_csv(f"train/data_{i}.csv", index=False)
+    for i in range(1, 4):
+        df_train = generate_restaurant_orders_data(
+            n_points=DEFAULT_POINTS,
+            noise_level=2.0,
+            add_anomalies=False
+        )
+        df_train.to_csv(f"train/data_{i}.csv", index=False)
 
-for i in range(1, 3):
-    df_test = generate_restaurant_orders_data(
-        n_points=DEFAULT_POINTS,
-        noise_level=4.0,
-        add_anomalies=True
-    )
-    df_test.to_csv(f"test/data_{i}.csv", index=False)
+    for i in range(1, 3):
+        df_test = generate_restaurant_orders_data(
+            n_points=DEFAULT_POINTS,
+            noise_level=4.0,
+            add_anomalies=True
+        )
+        df_test.to_csv(f"test/data_{i}.csv", index=False)
 
-print("Creation completed: restaurant orders data saved in 'train' and 'test' folders.")
+    print("Creation completed: restaurant orders data saved in 'train' and 'test' folders.")
+
+if __name__ == "__main__":
+    main()
