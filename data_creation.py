@@ -17,8 +17,9 @@ ANOMALY_COUNT = 3
 
 np.random.seed(42)
 
-os.makedirs("train", exist_ok=True)
-os.makedirs("test", exist_ok=True)
+def create_directories():
+    os.makedirs("train", exist_ok=True)
+    os.makedirs("test", exist_ok=True)
 
 def generate_restaurant_orders_data(n_points=24, noise_level=3.0, add_anomalies=False):
     hour = np.arange(n_points)
@@ -41,6 +42,8 @@ def generate_restaurant_orders_data(n_points=24, noise_level=3.0, add_anomalies=
     })
 
     return df
+
+create_directories()
 
 for i in range(1, 4):
     df_train = generate_restaurant_orders_data(
