@@ -1,0 +1,8 @@
+from python:3.11-slim
+
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements_train.txt
+
+CMD ["sh", "-c", "python model_preprocessing.py && python model_preparation.py"]
+

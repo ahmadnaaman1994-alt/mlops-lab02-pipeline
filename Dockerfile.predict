@@ -1,0 +1,8 @@
+from python:3.11-slim
+
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements_predict.txt
+
+CMD ["python", "model_testing.py"]
+

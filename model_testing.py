@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from sklearn.metrics import mean_absolute_error
 
-processed_test_path = "processed/test"
+3 = "processed/test"
 
 model = joblib.load("model.pkl")
 
