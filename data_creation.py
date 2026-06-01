@@ -18,8 +18,8 @@ ANOMALY_COUNT = 3
 np.random.seed(42)
 
 def create_directories():
-    os.makedirs("train", exist_ok=True)
-    os.makedirs("test", exist_ok=True)
+    os.makedirs("data/train", exist_ok=True)
+    os.makedirs("data/test", exist_ok=True)
 
 def generate_restaurant_orders_data(n_points=24, noise_level=3.0, add_anomalies=False):
     hour = np.arange(n_points)
@@ -52,7 +52,7 @@ def main():
             noise_level=2.0,
             add_anomalies=False
         )
-        df_train.to_csv(f"train/data_{i}.csv", index=False)
+        df_train.to_csv(f"data/train/data_{i}.csv", index=False)
 
     for i in range(1, 3):
         df_test = generate_restaurant_orders_data(
@@ -60,9 +60,9 @@ def main():
             noise_level=4.0,
             add_anomalies=True
         )
-        df_test.to_csv(f"test/data_{i}.csv", index=False)
+        df_test.to_csv(f"data/test/data_{i}.csv", index=False)
 
-    print("Creation completed: restaurant orders data saved in 'train' and 'test' folders.")
+    print("Creation completed: restaurant orders data saved in 'data/train' and 'data/test' folders.")
 
 if __name__ == "__main__":
     main()

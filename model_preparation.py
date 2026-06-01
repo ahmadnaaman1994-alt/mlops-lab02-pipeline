@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from sklearn.linear_model import LinearRegression
 
-processed_train_path = "processed/train"
+processed_train_path = "data/processed/train"
 
 all_data = []
 
@@ -20,6 +20,6 @@ y_train = train_data["orders"]
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-joblib.dump(model, "model.pkl")
+joblib.dump(model, "data/model.pkl")
 
-print("Training completed and saved as model.pkl")
+print("Training completed and saved as data/model.pkl")

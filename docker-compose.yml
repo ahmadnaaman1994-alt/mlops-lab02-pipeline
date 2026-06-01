@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  create_dataset:
+    build:
+      context: .
+      dockerfile: Dockerfile.create
+    volumes:
+      - ./data:/app/data
+
+  train_model:
+    build:
+      context: .
+      dockerfile: Dockerfile.train
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - create_dataset
+
+  make_prediction:
+    build:
+      context: .
+      dockerfile: Dockerfile.predict
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - train_model

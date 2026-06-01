@@ -2,11 +2,11 @@ import os
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-train_path = "train"
-test_path = "test"
+train_path = "data/train"
+test_path = "data/test"
 
-processed_train_path = "processed/train"
-processed_test_path = "processed/test"
+processed_train_path = "data/processed/train"
+processed_test_path = "data/processed/test"
 
 os.makedirs(processed_train_path, exist_ok=True)
 os.makedirs(processed_test_path, exist_ok=True)

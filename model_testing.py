@@ -3,9 +3,9 @@ import pandas as pd
 import joblib
 from sklearn.metrics import mean_absolute_error
 
-3 = "processed/test"
+processed_test_path = "data/processed/test"
 
-model = joblib.load("model.pkl")
+model = joblib.load("data/model.pkl")
 
 all_test_data = []
 
